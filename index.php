@@ -17,17 +17,19 @@
 
 $presentTime = new DateTime();
 $destinationTime = new DateTime('25 March 1941 21:35:00'); 
+$difference = $presentTime->diff($destinationTime);
 
 
 
-
-$divTop = 'div class="col-12 text-light d-flex justify-content-center" style="background-color: #990000; padding: 10px"';
+$divTop = 'div class="col-12 text-light d-flex justify-content-center" style="background-color: #990000; padding: 10px; font-size: 20px"';
 $divSub = 'div class="col-12 text-light bg-dark d-flex justify-content-center" style="padding: 10px"';
 $divTitle = 'div class=" col-12 title bg-warning d-flex justify-content-center" style="margin-top: 20px"';
+$meridianTop = 'div class="col-6 text-light d-flex justify-content-center" style="background-color: #990000; font-size: 11px"';
+
 
 ?>
 
-<div class="container col-3 bg-dark "> 
+<div class="container col-4 bg-dark "> 
 
     <<?= $divTitle ?>>PRESENT TIME</div>
 
@@ -39,29 +41,36 @@ $divTitle = 'div class=" col-12 title bg-warning d-flex justify-content-center" 
 
         <div class="day">
             <<?= $divTop ?>>DAY</div> 
-            <<?= $divSub ?>><?= strtoupper($presentTime->format('d'))?></div>
+            <<?= $divSub ?>><?= $presentTime->format('d')?></div>
         </div>
 
         <div class="year">
             <<?= $divTop ?>>YEAR</div> 
-            <<?= $divSub ?>><?= strtoupper($presentTime->format('y'))?></div>
+            <<?= $divSub ?>><?= $presentTime->format('y')?></div>
         </div>
 
 
-        <div class="">
-            <<?= $divSub ?>></div> 
-            <<?= $divSub ?>></div>
+        <div class="meridian">
+            <<?= $meridianTop ?>>AM</div>
+            <<?= $divSub ?>>
+                    <input type="radio">
+            </div>
+            <<?= $meridianTop ?>>PM</div>
+            <<?= $divSub ?>>
+                    <input type="radio" checked>
+            </div>
         </div>
 
+
+
+        <div class="hour">
+            <<?= $divTop ?>>HOUR</div> 
+            <<?= $divSub ?>><?= $destinationTime->format('h')?></div>
+        </div>
 
         <div class="min">
             <<?= $divTop ?>>MIN</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('h'))?></div>
-        </div>
-
-        <div class="sec">
-            <<?= $divTop ?>>SEC</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('i'))?></div>
+            <<?= $divSub ?>><?= $destinationTime->format('i')?></div>
         </div>
 
     </div>
@@ -70,7 +79,6 @@ $divTitle = 'div class=" col-12 title bg-warning d-flex justify-content-center" 
 
     <div class="row col-10 destinationTime text-light d-flex justify-content-between">
 
-
         <div class="month">
             <<?= $divTop ?>>MONTH</div> 
             <<?= $divSub ?>><?= strtoupper($destinationTime->format('M'))?></div>
@@ -78,12 +86,59 @@ $divTitle = 'div class=" col-12 title bg-warning d-flex justify-content-center" 
 
         <div class="day">
             <<?= $divTop ?>>DAY</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('d'))?></div>
+            <<?= $divSub ?>><?= $destinationTime->format('d')?></div>
         </div>
 
         <div class="year">
             <<?= $divTop ?>>YEAR</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('y'))?></div>
+            <<?= $divSub ?>><?= $destinationTime->format('y')?></div>
+        </div>
+
+
+        <div class="meridian">
+            <<?= $meridianTop ?>>AM</div>
+            <<?= $divSub ?>>
+                    <input type="radio">
+            </div>
+            <<?= $meridianTop ?>>PM</div>
+            <<?= $divSub ?>>
+                    <input type="radio" checked>
+            </div>
+        </div>
+
+
+        <div class="hour">
+            <<?= $divTop ?>>HOUR</div> 
+            <<?= $divSub ?>><?= $destinationTime->format('h')?></div>
+        </div>
+
+        <div class="min">
+            <<?= $divTop ?>>MIN</div> 
+            <<?= $divSub ?>><?= $destinationTime->format('i')?></div>
+        </div>
+
+    </div>
+
+
+
+    <<?= $divTitle ?>>DIFFERENCE</div>
+
+    <div class="row col-10 destinationTime text-light d-flex justify-content-between">
+
+
+        <div class="month">
+            <<?= $divTop ?>>MONTH</div> 
+            <<?= $divSub ?>><?= strtoupper($difference->m)?></div>
+        </div>
+
+        <div class="day">
+            <<?= $divTop ?>>DAY</div> 
+            <<?= $divSub ?>><?= $difference->d ?></div>
+        </div>
+
+        <div class="year">
+            <<?= $divTop ?>>YEAR</div> 
+            <<?= $divSub ?>><?= $difference->y ?></div>
         </div>
 
 
@@ -92,14 +147,14 @@ $divTitle = 'div class=" col-12 title bg-warning d-flex justify-content-center" 
             <<?= $divSub ?>></div>
         </div>
 
-        <div class="min">
-            <<?= $divTop ?>>MIN</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('h'))?></div>
+        <div class="hour">
+            <<?= $divTop ?>>HOUR</div> 
+            <<?= $divSub ?>><?= $difference->h ?></div>
         </div>
 
-        <div class="sec">
-            <<?= $divTop ?>>SEC</div> 
-            <<?= $divSub ?>><?= strtoupper($destinationTime->format('i'))?></div>
+        <div class="min">
+            <<?= $divTop ?>>MIN</div> 
+            <<?= $divSub ?>><?= $difference->i ?></div>
         </div>
 
     </div>
