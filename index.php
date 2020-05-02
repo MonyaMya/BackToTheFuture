@@ -53,11 +53,11 @@ $meridianTop = 'div class="col-6 text-light d-flex justify-content-center" style
         <div class="meridian">
             <<?= $meridianTop ?>>AM</div>
             <<?= $divSub ?>>
-                    <input type="radio">
+            <input type="radio" <?php if ($destinationTime->format('H') < 12) : echo 'checked'; endif; ?>>
             </div>
             <<?= $meridianTop ?>>PM</div>
             <<?= $divSub ?>>
-                    <input type="radio" checked>
+            <input type="radio" <?php if ($destinationTime->format('H') > 12) : echo 'checked'; endif; ?>>
             </div>
         </div>
 
@@ -98,11 +98,13 @@ $meridianTop = 'div class="col-6 text-light d-flex justify-content-center" style
         <div class="meridian">
             <<?= $meridianTop ?>>AM</div>
             <<?= $divSub ?>>
-                    <input type="radio">
+                        <input type="radio" <?php if ($destinationTime->format('H') < 12) : echo 'checked'; endif; ?>>
+
             </div>
             <<?= $meridianTop ?>>PM</div>
             <<?= $divSub ?>>
-                    <input type="radio" checked>
+                        <input type="radio" <?php if ($destinationTime->format('H') > 12) : echo 'checked'; endif; ?>>
+
             </div>
         </div>
 
